@@ -33,7 +33,3 @@
 .status-dead {
 	filter: grayscale(100%);
 }
-
-button {
-  font-size: calc(10px + 2vmin);
-}
