@@ -4,7 +4,7 @@ import './App.css';
 import LocationContainer from './components/LocationContainer';
 import ResidentContainer from './components/ResidentContainer';
 import SearchBox from './components/SearchBox';
-import LoadingAnimation from './components/aux/LoadingAnimation';
+import LoadingAnimation from './components/LoadingAnimation';
 
 import getAllLocations from './helpers/getAllLocations';
 import getInfoLocation from './helpers/getInfoLocation';
