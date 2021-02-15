@@ -1,0 +1,39 @@
+@font-face {
+	font-family: Schwifty;
+	src: url('./fonts/get-schwifty.ttf');
+}
+
+.App {
+  text-align: center;
+}
+
+.main-title {
+	font-family: Schwifty;
+	font-size: 5rem;
+	color: #1de9dd;
+	-webkit-text-stroke: .25rem #438b0e;
+}
+
+.blink-text {
+	color: #CD2525;
+	animation: blink-animation 1s steps(5, start) infinite;
+	-webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@-webkit-keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+
+.status-dead {
+	filter: grayscale(100%);
+}
+
+button {
+  font-size: calc(10px + 2vmin);
+}
