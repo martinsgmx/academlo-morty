@@ -9,8 +9,8 @@ const ResidentInfo = ( { avatar, name, status, origin, episodes } ) => {
 				src={ avatar }
 				alt={ name }
 			/>
-			<h6>
-				<strong>{ status }</strong>
+			<h6 className="mt-2">
+				<strong>{ status }</strong> | <strong>{ origin }</strong>
 			</h6>
 			<h5>
 				<strong>{ name }</strong>
