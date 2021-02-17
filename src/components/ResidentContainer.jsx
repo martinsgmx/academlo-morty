@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ResidentInfo from './ResidentInfo';
 
 const ResidentContainer = ( { residents } ) => {
