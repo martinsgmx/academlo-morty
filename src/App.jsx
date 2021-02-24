@@ -41,16 +41,23 @@ function App() {
 	useEffect( () => {
 		setDataLocation( [] );
 
-		let res;
-		try {
-			res = locations.find( ( { name } ) => name.toLowerCase() === searchText.toLowerCase() );
-		} catch {
-			res = null;
+		const findLocationByName = ( search, callback ) => {
+			const location = locations.find( ( { name } ) => name.toLowerCase() === search.toLowerCase() );
+
+			if ( location ) {
+				return callback( null, location.id );
+			} else {
+				return callback( true, null );
+			}
 		}
 
-		if ( res != null ) {
-			setActualID( res.id );
-		}
+		findLocationByName( searchText, ( err, location ) => {
+			if ( err ) {
+				return setActualID( true );
+			}
+
+			setActualID( location );
+		} );
 
 	}, [ buttonStatus ] );
 
@@ -104,19 +111,23 @@ function App() {
 						{ import.meta.env.VITE_MAIN_TITLE }
 					</h1>
 				</div>
+				<div className="alert alert-primary" role="alert">
+					<strong>Some test locations: </strong>
+					Citadel of Ricks |
+					Earth (C-137) |
+					Abadango |
+					Anatomy Park |
+					Post-Apocalyptic Earth
+				</div>
+
 				<SearchBox
 					searchText={ searchText }
 					inputHandler={ setSearchText }
 					buttonHandler={ setButtonStatus }
 				/>
 			</div>
-
 			<div className="container mt-3">
 			{
-				( !dataLocation )
-				?
-				<LoadingAnimation />
-				:
 				( dataLocation.residents ) &&
 					<LocationContainer
 						name={ dataLocation.name }
